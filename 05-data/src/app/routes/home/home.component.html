@@ -1,0 +1,6 @@
+<mat-toolbar>Home</mat-toolbar>
+<mat-form-field>
+  <mat-label>Text value</mat-label>
+  <input matInput [(ngModel)]="body" (keyup)="updateParagraph($event)" />
+</mat-form-field>
+<section class="target"></section>
