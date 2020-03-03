@@ -17,5 +17,5 @@ Normalization is the process of mapping a numeric value to a new value between 0
 With linear scales, we are just letting d3 handle the math of the normalization process. The input value is normalized according to the domain, and then the normalized value is scaled to the output range.
 
 [![linear-scale](.images/05-linear-scale.png)](.images/05-linear-scale.png)  
-*See the example in [07-scales](./07-scales)*  
+*See the example in [LinearScaleComponent](./07-scales/src/app/components/linear-scale)*  
 
