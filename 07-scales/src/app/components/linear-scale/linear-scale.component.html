@@ -1,0 +1,61 @@
+<section fxLayout="column"
+         fxLayoutAlign="start stretch">
+  <section fxLayout="row"
+           fxLayoutAlign="start center">
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p>Min Domain: {{minDomain}}</p>
+      <mat-slider [value]="minDomain"
+                  [min]="100"
+                  [max]="300"
+                  [step]="10"
+                  [tickInterval]="1"
+                  (input)="updateMinDomain($event)"></mat-slider>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p>Max Domain: {{maxDomain}}</p>
+      <mat-slider [value]="maxDomain"
+                  [min]="400"
+                  [max]="600"
+                  [step]="10"
+                  [tickInterval]="1"
+                  (input)="updateMaxDomain($event)"></mat-slider>
+    </section>
+  </section>
+  <section fxLayout="row"
+           fxLayoutAlign="start center">
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p>Min Range: {{minRange}}</p>
+      <mat-slider [value]="minRange"
+                  [min]="0"
+                  [max]="100"
+                  [step]="10"
+                  [tickInterval]="1"
+                  (input)="updateMinRange($event)"></mat-slider>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p>Max Range: {{maxRange}}</p>
+      <mat-slider [value]="maxRange"
+                  [min]="200"
+                  [max]="500"
+                  [step]="10"
+                  [tickInterval]="1"
+                  (input)="updateMaxRange($event)"></mat-slider>
+    </section>
+  </section>
+  <p>Domain Value: {{domainValue}}</p>
+  <mat-slider [value]="domainValue"
+              [min]="minDomain"
+              [max]="maxDomain"
+              [step]="10"
+              [tickInterval]="1"
+              (input)="updateDomainValue($event)"></mat-slider>
+  <p class="mat-subheading-2">Scaled Value: {{value}}</p>
+</section>
