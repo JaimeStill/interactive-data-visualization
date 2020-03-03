@@ -1,2 +1,55 @@
 <mat-toolbar>Linear Scale</mat-toolbar>
 <linear-scale></linear-scale>
+<mat-toolbar>Scaled Scatterplot</mat-toolbar>
+<section fxLayout="column"
+         fxLayoutAlign="start stretch">
+  <section fxLayout="row"
+           fxLayoutAlign="start center">
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p class="mat-subheading-2">Width: {{width}}</p>
+      <mat-slider [value]="width"
+                  [min]="400"
+                  [max]="2000"
+                  [step]="10"
+                  [tickInterval]="10"
+                  (input)="updateWidth($event)"></mat-slider>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p class="mat-subheading-2">Height: {{height}}</p>
+      <mat-slider [value]="height"
+                  [min]="100"
+                  [max]="500"
+                  [step]="10"
+                  [tickInterval]="1"
+                  (input)="updateHeight($event)"></mat-slider>
+    </section>
+    <section fxLayout="column"
+             fxLayoutAlign="start stretch"
+             fxFlex>
+      <p class="mat-subheading-2">Padding: {{padding}}</p>
+      <mat-slider [value]="padding"
+                  [min]="4"
+                  [max]="80"
+                  [step]="4"
+                  [tickInterval]="1"
+                  (input)="updatePadding($event)"></mat-slider>
+    </section>
+  </section>
+  <mat-form-field>
+    <mat-label>Fill Color</mat-label>
+    <input matInput
+           [value]="fillColor"
+           (keyup.enter)="updateFillColor($event)" />
+  </mat-form-field>
+</section>
+<scaled-scatterplot [dataset]="dataset"
+                    [width]="width"
+                    [height]="height"
+                    [padding]="padding"
+                    [fillColor]="fillColor"></scaled-scatterplot>
+<mat-toolbar>Time Scale</mat-toolbar>
+<time-scale></time-scale>
