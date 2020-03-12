@@ -1,30 +1,43 @@
 import { Injectable } from '@angular/core';
-import { interval } from 'rxjs';
+
+import { timer } from 'rxjs';
+
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AppService {
   private getRandom = (max: number = 30) => Math.floor(Math.random() * max);
 
-  private generateData = (): number[] => {
-    const data = new Array<number>();
+  private generateBarData = (): {key: number, value: number}[] => {
+    const data = new Array<{key: number, value: number}>();
     const rand = Math.floor(Math.random() * 13);
     const value = rand % 2 ? 25 : 30;
 
-    console.log('rand', rand);
-    console.log('rand % 2', rand % 2);
-    console.log('value', value);
-
     for (let i = 0; i < value; i++) {
-      data.push(this.getRandom());
+      data.push({key: i + 1, value: this.getRandom()});
     }
 
-    console.log('data.length', data.length);
     return data;
   }
 
-  begin = interval(3000)
+  private generateScatterData = (): number[][] => {
+    const data = new Array<number[]>();
+    const values = Math.floor(Math.random() * 10) + 30;
+
+    for (let i = 0; i < values; i++) {
+      data.push([this.getRandom(50), this.getRandom(50)]);
+    }
+
+    return data;
+  }
+
+  barStream = timer(0, 3000)
     .pipe(
-      map(x => this.generateData())
+      map(x => this.generateBarData())
+    );
+
+  scatterStream = timer(0, 3000)
+    .pipe(
+      map(x => this.generateScatterData())
     );
 }
